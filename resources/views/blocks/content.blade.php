@@ -53,6 +53,12 @@
 
 			</div>
 
+			@if (!empty($g_content['bg']))
+			<div data-gsap-element="img" class="__img">
+				<img class="" src="{{ $g_content['bg']['url'] }}" alt="{{ $g_content['bg']['alt'] ?? '' }}">
+			</div>
+			@endif
+
 		</div>
 	</div>
 

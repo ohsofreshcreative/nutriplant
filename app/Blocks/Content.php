@@ -57,20 +57,11 @@ class Content extends Block
 				'label' => 'Przycisk',
 				'return_format' => 'array',
 			])
-			->addTrueFalse('hint', [
-				'label' => 'Dodaj dymek',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addImage('image_hint', [
-				'label' => 'Obraz',
+			->addImage('bg', [
+				'label' => 'Tło',
 				'return_format' => 'array',
 				'preview_size' => 'thumbnail',
 			])
-			->conditional('hint', '==', '1')
-			->addText('header_hint', ['label' => 'Nagłówek'])
-			->conditional('hint', '==', '1')
 			->endGroup()
 
 			/*--- USTAWIENIA BLOKU ---*/
@@ -84,6 +75,12 @@ class Content extends Block
 			])
 			->addTrueFalse('nolist', [
 				'label' => 'Brak punktatorów',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('circle', [
+				'label' => 'Okrągłe obrazki',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
@@ -143,6 +140,7 @@ class Content extends Block
 			'wide' => (bool) get_field('wide'),
 			'nomt' => (bool) get_field('nomt'),
 			'gap' => (bool) get_field('gap'),
+			'circle' => (bool) get_field('circle'),
 
 			'background' => get_field('background') ?: 'none',
 		];
@@ -152,6 +150,7 @@ class Content extends Block
 			'wide' => 'wide',
 			'nomt' => '!mt-0',
 			'gap' => 'wider-gap',
+			'circle' => 'img-rounded',
 		]);
 
 		return $fields;

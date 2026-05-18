@@ -73,3 +73,11 @@
     }
   }
 }
+
+
+.b-content.img-rounded {
+	img {
+		border-radius:400px !important;
+		aspect-ratio: 1 / 1;
+	}
+}
