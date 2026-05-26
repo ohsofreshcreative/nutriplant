@@ -17,8 +17,8 @@
 		object-position: left center;
 
 		@media (min-width: 768px) {
-			-webkit-mask-image: url('http://localhost:10003/wp-content/uploads/2026/05/mask.svg');
-			mask-image: url('http://localhost:10003/wp-content/uploads/2026/05/mask.svg');
+			-webkit-mask-image: url('/wp-content/uploads/2026/05/mask.svg');
+			mask-image: url('/wp-content/uploads/2026/05/mask.svg');
 			-webkit-mask-repeat: no-repeat;
 			mask-repeat: no-repeat;
 			-webkit-mask-size: cover;
