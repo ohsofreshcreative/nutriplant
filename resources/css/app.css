@@ -9,8 +9,9 @@
 :root {
 /* base */
 --body: 42 63 80; /* #2A3F50 */
+--black: 0 0 0;
 
-/* PRIMARY (zielony) */
+/* PRIMARY */
 --primary: 162 205 5; /* #A2CD05 */
 --p-hover: 135 176 4; /* #87B004 */
 
@@ -24,7 +25,8 @@
 --p-700: 108 137 3;   /* #6C8903 */
 --p-800: 81 103 3;    /* #516703 */
 --p-900: 54 68 2;     /* #364402 */
---p-dark: 32 41 1;    /* #202901 */
+--p-1000: 32 41 1;    /* #202901 */
+--p-green: 162 205 6; /* #A2CD06 */
 
 --action: rgb(162, 205, 5);
 
@@ -44,19 +46,21 @@
 --s-900: 62 12 0;     /* #3E0C00 */
 --s-dark: 37 7 0;     /* #250700 */
 
+
   /* neutrals / fixed backgrounds */
   --gray: #2a3f50;
   --bg: #FFF9F2;
-  --bg-light: #F7EEE5;
-  --bg-lighter: #E9F8F3;
+  --bg-light: #F7FFD9;
+  --bg-lighter: #ECF5CD;
   --bg-brand: #002704;
   --bg-dark: #071622;
+ --carbon: 18 20 26;
 }
 
 @theme {
   /* base */
   --color-body: rgb(var(--body));
-
+--color-black: rgb(var(--black));
   /* primary */
   --color-primary: rgb(var(--primary));
   --color-primary-hover: rgb(var(--p-hover));
@@ -67,10 +71,10 @@
   --color-primary-400: rgb(var(--p-400));
   --color-primary-500: rgb(var(--p-500));
   --color-primary-600: rgb(var(--p-600));
-  --color-primary-700: rgb(var(--p-700));
   --color-primary-800: rgb(var(--p-800));
   --color-primary-900: rgb(var(--p-900));
   --color-primary-dark: rgb(var(--p-dark));
+  --color-brand-green: rgb(var(--p-green));
 
   /* secondary */
   --color-secondary: rgb(var(--secondary));
@@ -85,9 +89,11 @@
   --color-secondary-800: rgb(var(--s-800));
   --color-secondary-900: rgb(var(--s-900));
   --color-secondary-dark: rgb(var(--s-dark));
+  --color-carbon: rgb(var(--carbon));
 
   --color-gray: var(--gray);
   --color-action: var(--action);
+  
 
   --color-page: var(--bg);
   --color-background-light: var(--bg-light);
@@ -101,7 +107,7 @@
   --color-secondary-lighter: var(--color-secondary-100);
 
   --color-muted: var(--color-secondary-500);
-  --gradient: linear-gradient(90deg, #132A23 0%, #0D3F2F 100%);
+  --gradient: linear-gradient(90deg, #112000 0%, #172901 100%);
   --gradient-light: linear-gradient(-90deg, #0E3A2D 0%, #0A533D 100%);
   --gradient-s: linear-gradient(-90deg, #DE855D 0%, #D37A51 100%);
 
@@ -116,88 +122,19 @@
 
 /*-- USED ---*/
 @import '../css/blocks/hero.scss';
-/*-- NOT USED --*/
 @import '../css/blocks/tabs.scss';
-@import '../css/blocks/about.scss';
-@import '../css/blocks/category-posts.scss';
-@import '../css/blocks/places.scss';
-@import '../css/blocks/cantors.scss';
-@import '../css/blocks/cards.scss';
-@import '../css/blocks/content.scss';
-
-@import '../css/blocks/help.scss';
-@import '../css/blocks/cta-bg.scss';
-@import '../css/blocks/tiles.scss';
-@import '../css/blocks/team.scss';
-@import '../css/blocks/offer.scss';
-@import '../css/blocks/reviews.scss';
-@import '../css/blocks/connect.scss';
-@import '../css/blocks/hero-about.scss';
-@import '../css/blocks/who.scss';
-@import '../css/blocks/numbers.scss';
-@import '../css/blocks/member.scss';
-@import '../css/blocks/hero-offer.scss';
-@import '../css/blocks/proces.scss';
-@import '../css/blocks/faq.scss';
-@import '../css/blocks/hero-help.scss';
-@import '../css/blocks/overlap.scss';
-@import '../css/blocks/contact.scss';
-@import '../css/blocks/wehelp.scss';
-@import '../css/blocks/prices.scss';
-@import '../css/blocks/image.scss';
-@import '../css/blocks/cta.scss';
-@import '../css/blocks/resources.scss';
-@import '../css/blocks/mats.scss';
-@import '../css/blocks/jobs.scss';
-@import '../css/blocks/hero-blog.scss';
-@import '../css/blocks/ebook.scss';
-@import '../css/blocks/slider.scss';
-@import '../css/blocks/block-clone.scss';
-@import '../css/blocks/speakers.scss';
-@import '../css/blocks/triple.scss';
-@import '../css/blocks/boxes.scss';
-@import '../css/blocks/product.scss';
-@import '../css/blocks/voucher.scss';
-@import '../css/blocks/accordion.scss';
-
-@import '../css/blocks/complex.scss';
-@import '../css/blocks/works.scss';
-@import '../css/blocks/hero-sub.scss';
-@import '../css/blocks/hero-brand.scss';
-@import '../css/blocks/how.scss';
-@import '../css/blocks/quote.scss';
-@import '../css/blocks/services.scss';
-@import '../css/blocks/twin.scss';
-@import '../css/blocks/order.scss';
-@import '../css/blocks/gains.scss';
-@import '../css/blocks/overlap.scss';
-@import '../css/blocks/what.scss';
-@import '../css/blocks/connect.scss';
-@import '../css/blocks/gallery.scss';
-@import '../css/blocks/calc.scss';
-@import '../css/blocks/tlc.scss';
-@import '../css/blocks/categories.scss';
-@import '../css/blocks/bottom-block.scss';
-@import '../css/blocks/hero-cat.scss';
-@import '../css/blocks/hero-job.scss';
-@import '../css/blocks/selection.scss';
-@import '../css/blocks/product-hero.scss';
-@import '../css/blocks/sectors.scss';
-@import '../css/blocks/steps.scss';
-@import '../css/blocks/values.scss';
-@import '../css/blocks/cert.scss';
-@import '../css/blocks/catalogues.scss';
-@import '../css/blocks/job.scss';
-@import '../css/blocks/map.scss';
-@import '../css/blocks/logos.scss';
-@import '../css/blocks/locations.scss';
-@import '../css/blocks/categories.scss';
-@import '../css/blocks/area-block.scss';
-@import '../css/blocks/cases.scss';
-@import '../css/blocks/history.scss';
-@import '../css/blocks/cases-slider.scss';
-@import '../css/blocks/path.scss';
 @import '../css/blocks/duotitle.scss';
-@import '../css/blocks/inspirations.scss';
+/*-- NOT USED --*/
+@import '../css/blocks/category-posts.scss';
+@import '../css/blocks/cards.scss';
+@import '../css/blocks/contact.scss';
+@import '../css/blocks/content.scss';
+@import '../css/blocks/cta-bg.scss';
+@import '../css/blocks/cta.scss';
+@import '../css/blocks/faq.scss';
+@import '../css/blocks/gallery.scss';
+@import '../css/blocks/image.scss';
+@import '../css/blocks/reviews.scss';
+@import '../css/blocks/slider.scss';
 @import '../css/blocks/wysiwyg.scss';
-@import '../css/blocks/coop.scss';
+ 

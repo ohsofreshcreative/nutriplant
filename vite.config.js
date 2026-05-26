@@ -10,13 +10,13 @@ import path from 'path'
 export default defineConfig(({ command }) => ({
   server: {
     host: 'nutriplant.local',
-    port: 5981,
+    port: 3173,
     strictPort: true,
     cors: true,
     hmr: {
       protocol: 'ws',
       host: 'nutriplant.local',
-      port: 5981,
+      port: 3173,
     },
   },
 

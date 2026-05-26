@@ -1,84 +1,128 @@
 .b-contact {
-  .__data {
-    font-size: 16px;
-  }
+	.__blur {
+		height: 400px;
+		width: 400px;
+		background: var(--color-primary, #A2CD06);
+		mix-blend-mode: overlay;
+		filter: blur(150px);
+		border-radius: 400px;
+		top: 0%;
+		right: 5%;
+	}
+		.__blur-left {
+		height: 400px;
+		width: 400px;
+		background: var(--color-primary, #A2CD06);
+		mix-blend-mode: overlay;
+		filter: blur(150px);
+		border-radius: 400px;
+		bottom: 8%;
+		left: 0%;
+	}
 
-  .__data a {
-	color:var(--text-s-light);
-  }
-  
-  .__data a:hover {
-	color:var(--text-s-lighter);
-  }
+	.custom-figma-form {
+		width: 100%;
+	}
 
-  .__phone {
-    display: flex;
-  }
+	.wpcf7 {
+		width: 100%;
+	}
 
-  .__phone::before {
-    content: url('/wp-content/uploads/2026/05/phone.svg');
-    margin-right: 16px;
-    position: relative;
-    top: 4px;
-    max-width: 40px;
-  }
+	.wpcf7-form {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
 
-  .__mail {
-    display: flex;
-  }
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
 
-  .__mail::before {
-    content: url('/wp-content/uploads/2026/05/mail.svg');
-    margin-right: 16px;
-    position: relative;
-    top: 4px;
-    max-width: 40px;
-  }
+	.form-group label {
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--color-white) !important;
+		margin: 0;
+		display: block;
+	}
 
-  .__address::before {
-    content: url('/wp-content/uploads/2026/01/place.svg');
-    margin-right: 16px;
-    position: relative;
-    top: 4px;
-    max-width: 40px;
-  }
+	.wpcf7-form input,
+	.wpcf7-form textarea {
+		width: 100%;
+		background: #fff;
+		border: 1px solid var(--color-primary);
+		border-radius: 4px;
+		padding: 11px 14px;
+		font-size: 16px;
+		color: #111;
+		transition: 0.2s ease;
+	}
 
-  .__hours::before {
-    content: url('/wp-content/uploads/2026/01/time.svg');
-    margin-right: 16px;
-    position: relative;
-    top: 4px;
-    max-width: 40px;
-  }
+	.wpcf7-form textarea {
+		min-height: 128px;
+		resize: none;
+	}
 
-    ul {
-      margin-top: 8px;
-      margin-bottom: 24px;
-      list-style: none;
-      padding-left: 0;
+	.wpcf7-form input:focus,
+	.wpcf7-form textarea:focus {
+		outline: none;
+		border-color: #d8ff2f;
+		box-shadow: 0 0 0 2px rgba(183, 224, 0, .2);
+	}
 
-      &:last-child {
-        margin-bottom: 0;
-      }
+	.form-consent {
+		margin-top: 4px;
+	}
 
-      li {
-        position: relative;
-        margin-bottom: 0.5em;
-        display: flex;
-        gap: 8px;
-        align-items: start;
+	.wpcf7-acceptance {
+		display: block;
+	}
 
-        &::before {
-          content: url('/wp-content/uploads/2026/01/double-arrow.svg');
-		  position: relative;
-          left: 0;
-          top: 1px;
-          width: 14px;
-          height: 14px;
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-      }
-    }
-  }
+	.wpcf7-list-item {
+		margin-left: 0 !important;
+	}
+
+
+	.wpcf7-list-item label {
+		display: flex;
+		align-items: flex-start;
+		gap: 12px;
+		cursor: pointer;
+	}
+
+	.wpcf7-list-item input[type="checkbox"] {
+		min-width: 24px;
+		width: 24px;
+		height: 24px;
+		margin: 0;
+		flex-shrink: 0;
+		position: relative;
+		top: -2px;
+	}
+
+	.wpcf7-list-item-label {
+		font-size: 14px;
+		line-height: 1.43;
+		color: var(--color-white);
+		display: block;
+	}
+
+	.wpcf7-submit {
+		background: var(--color-brand-green) !important;
+		color: var(--color-white) !important;
+		border: none !important;
+		border-radius: 120px !important;
+		padding: 17px 38px !important;
+		font-size: 16px;
+		font-weight: 400;
+		cursor: pointer;
+		width: max-content !important;
+		transition: 0.2s ease;
+	}
+
+	.wpcf7-submit:hover {
+		filter: brightness(0.9);
+	}
+}

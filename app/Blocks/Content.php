@@ -46,6 +46,11 @@ class Content extends Block
 				'return_format' => 'array',
 				'preview_size' => 'thumbnail',
 			])
+	->addImage('decor_image', [
+    'label' => 'Zielona ikona dekoracyjna (opcjonalnie)',
+    'return_format' => 'array',
+    'preview_size' => 'thumbnail',
+])
 			->addText('header', ['label' => 'Nagłówek'])
 			->addWysiwyg('txt', [
 				'label' => 'Treść',
@@ -123,6 +128,17 @@ class Content extends Block
 				'default_value' => 'none',
 				'ui' => 0, // Ulepszony interfejs
 				'allow_null' => 0,
+			])
+			->addSelect('decor_variant', [
+				'label' => 'Wariant pozycji zielonej ikony',
+				'choices' => [
+					'content' => 'Wariant 1 - lewy górny róg',
+					'content2' => 'Wariant 2 - prawy dolny róg',
+					'content3' => 'Wariant 3 - dolny lewy róg',
+				],
+				'default_value' => 'content',
+				'ui' => 0,
+				'allow_null' => 0,
 			]);
 
 		return $content;
@@ -143,6 +159,7 @@ class Content extends Block
 			'circle' => (bool) get_field('circle'),
 
 			'background' => get_field('background') ?: 'none',
+			'decor_variant' => get_field('decor_variant') ?: 'content',
 		];
 
 		$fields['sectionClass'] = SectionClasses::fromMap($fields, [
@@ -150,8 +167,11 @@ class Content extends Block
 			'wide' => 'wide',
 			'nomt' => '!mt-0',
 			'gap' => 'wider-gap',
-			'circle' => 'img-rounded',
+			'circle' => 'img-circle',
 		]);
+
+		// Dodaj wariant zielonej ikony do sectionClass
+		$fields['sectionClass'] .= ' ' . $fields['decor_variant'];
 
 		return $fields;
 	}

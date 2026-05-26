@@ -80,6 +80,7 @@
  */
 html {
 	scroll-behavior: smooth;
+	scroll-padding-top: 120px;
 }
 
 html,
@@ -92,15 +93,15 @@ body {
 /*--- !ROOT ---*/
 
 :root {
-	--header: "Archivo", sans-serif;
-	--txt: "Archivo", sans-serif;
+	--header: "Poppins", sans-serif;
+	--txt: "Poppins", sans-serif;
 	--btns-font: "Archivo", sans-serif;
 
 	--smt: 104px;
 	--spt: 104px;
 	--smb: 104px;
 	--spb: 104px;
-	--menu-height: 72px !important;
+	--menu-height: 80px !important;
 
 	--img-xs: 176px;
 	--img-s: 200px;
@@ -153,6 +154,7 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+
 	.c-narrow,
 	.c-main,
 	.c-wide,
@@ -161,9 +163,10 @@ body {
 		margin: 0 0px;
 		width: 100%;
 	}
+
 	.c-wide .c-main {
-		padding-left:0 !important;
-		padding-right:0 !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
 	}
 }
 
@@ -242,7 +245,7 @@ body {
 
 .section-light {
 	background: var(--bg-light);
-	padding: 120px 0;
+	padding: var(--smt) 0;
 }
 
 .section-white {
@@ -421,7 +424,8 @@ em,
 div,
 .__txt {
 	font-family: var(--txt);
-	font-weight: 300;
+	font-weight: 400;
+	font-size: 18px;
 }
 
 ul,
@@ -431,7 +435,7 @@ li {
 
 b,
 strong {
-	font-weight: 500;
+	font-weight: 600;
 	color: var(--body);
 }
 
@@ -478,14 +482,15 @@ h6,
 
 h1,
 .text-h1 {
-	font-size: 72px !important;
-	line-height: 4.8rem;
+	font-size: 52px !important;
+	line-height: 3.9rem;
+
 }
 
 h2,
 .text-h2 {
-	font-size: 48px !important;
-	line-height: 3.7rem;
+	font-size: 52px ;
+	line-height: 4rem;
 }
 
 h3,
@@ -758,8 +763,8 @@ h6,
 .white-btn {
 	font-family: var(--btns-font);
 	font-size: var(--btns-fontsize);
-	background: #fff;
-	color: var(--color-primary) !important;
+	background: var(--color-primary);
+	color: #000 !important;
 	padding: var(--btns-padding);
 	display: inline-block;
 	transition: all 0.2s ease-out;
@@ -992,14 +997,47 @@ h6,
 
 #mobile-menu-panel {
 	li a {
-		color: var(--color-primary);
+		color: var(--color-primary-900);
 		font-size: 20px;
-		font-weight: 300;
+		font-weight: 500;
 	}
 
 	li a:hover {
-		color: var(--color-primary-200);
+		color: var(--color-primary);
 	}
+}
+
+#menu-menu > li > a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--color-carbon) !important;
+    font-size: 16px;
+    white-space: nowrap;
+	font-weight: 500;
+}
+
+#menu-menu > li:last-child {
+    display: flex;
+    align-items: center; 
+   
+}
+
+#menu-menu > li:last-child > a {
+    background-color: var(--color-secondary); 
+    color: #fff !important;                 
+    padding: 10px 33px !important;         
+    border-radius: var(--btns-radius, 104px); 
+    height: max-content;                
+
+    transition: all 0.2s ease-out;
+}
+
+#menu-menu > li:last-child > a:hover {
+    background: var(--color-secondary-hover);
+    color: #fff !important;
+    transition: all 0.2s ease-out;
+    
 }
 
 
@@ -1389,8 +1427,9 @@ article.post:hover {
 					padding-right: 0;
 				}
 			}
+
 			li:hover {
-				color:var(--color-secondary-200);
+				color: var(--color-secondary-200);
 			}
 		}
 	}
@@ -1566,7 +1605,7 @@ footer {
 	h1,
 	.text-h1 {
 		font-size: 42px !important;
-		line-height: 3rem;
+		
 	}
 }
 
@@ -1600,6 +1639,21 @@ footer {
 	}
 }
 
+
+/*---- !XL --*/
+
+@media (max-width: 1280px) {
+	h1,
+.text-h1 {
+  font-size: 42px !important;
+  
+}
+  h2, 
+  .text-h2 {
+    font-size: 42px !important;
+  }
+}
+
 /*---- !SM --*/
 @media only screen and (max-width: 640px) {
 	:root {
@@ -1612,13 +1666,13 @@ footer {
 
 	h1,
 	.text-h1 {
-		font-size: 42px !important;
-		line-height: 3rem;
+		font-size: 34px !important;
+		line-height: 3.2rem;
 	}
 
 	h2,
 	.text-h2 {
-		font-size: 42px !important;
+		font-size: 32px !important;
 		line-height: 2.8rem;
 	}
 
@@ -1642,6 +1696,12 @@ footer {
 	h6,
 	.text-h6 {
 		font-size: 20px !important;
+	}
+	p, li{
+	font-size: 16px;
+	}
+	b{
+	font-size: 18px;
 	}
 }
 

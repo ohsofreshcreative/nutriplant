@@ -1,37 +1,68 @@
-<!--- contact --->
+<!-- contact -->
 
 <section
-	data-gsap-anim="section" style="background-image:linear-gradient(rgba(5,7,54,0.48), rgba(5, 7, 54,0.48)), url('{{ $g_contact_1['image']['url'] }}'); background-size:cover; background-position:center;" 
+	data-gsap-anim="section"
 	@if(!empty($section_id)) id="{{ $section_id }}" @endif
-	@class([ 'b-contact  relative pt-10 pb-10' ,
-	$sectionClass=> filled($sectionClass),
-	$section_class => filled($section_class),
-	$background => filled($background) && $background !== 'none',
+	@class([ 'b-contact relative -smt w-full block clear-both pt-20 pb-20 bg-gradient' ,
+	$section_class=> filled($section_class),
 	])>
+	<div class="__blur absolute "></div>
+	<div class="__blur-left absolute "></div>
+	<div class="c-main relative z-2 mx-auto px-4 w-full">
 
-	<div class="__wrapper c-main relative z-2 py-16">
+		<div class="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center z-10">
 
-		<div class="relative grid grid-cols-1 lg:grid-cols-2 items-center gap-10 z-10">
-			<div class="__content w-full lg:w-11/12 flex flex-col justify-between">
-				<h2 data-gsap-element="header" class="text-white">{!! $g_contact_1['header'] !!}</h2>
-				<a data-gsap-element="txt" class="__phone flex items-center !text-white text-lg w-max mt-4" href="tel:{{ $g_contact_1['phone'] }}">{{ $g_contact_1['phone'] }}</a>
-				<div class="border-t border-dashed border-secondary pt-4 mt-4">
-					<a data-gsap-element="txt" class="__mail flex items-center !text-white text-lg w-max" href="mailto:{{ $g_contact_1['mail'] }}">{{ $g_contact_1['mail'] }}</a>
+			<div class="__content w-full flex flex-col justify-center h-auto">
+
+				<div class="w-full">
+
+					@if(!empty($g_contact_1['subtitle']))
+					<span class="text-brand-green !text-base font-normal tracking-wider uppercase mb-4 block">
+						{!! $g_contact_1['subtitle'] !!}
+					</span>
+					@endif
+
+					<h2
+						data-gsap-element="header"
+						class="text-white text-5xl text-h2 font-bold leading-tight mb-6 ">
+						{!! $g_contact_1['header'] !!}
+					</h2>
+
+					@if(!empty($g_contact_1['description']))
+					<p
+						data-gsap-element="txt"
+						class="text-white text-sm lg:text-base max-w-2xl mb-8 leading-relaxed opacity-90 lg:pr-12">
+						{!! $g_contact_1['description'] !!}
+					</p>
+					@endif
+
 				</div>
-				<x-button
-					href="#lokalizacje"
-					variant="secondary"
-					class="mt-6"
-					data-gsap-element="btn">
-					Sprawdź lokalizacje
-				</x-button>
+
+				@if(!empty($g_contact_1['bottom_image']['url']))
+				<div data-gsap-element="img" class="mt-4 __img-wrapper overflow-hidden rounded-[96px] max-w-2xl h-[272px] w-full shadow-xl">
+
+					<img
+						src="{{ $g_contact_1['bottom_image']['url'] }}"
+						alt="{{ $g_contact_1['bottom_image']['alt'] ?? 'Kontakt' }}"
+						class="w-full h-full object-cover object-center">
+
+				</div>
+				@endif
+
 			</div>
 
-			<div data-gsap-element="form" class="bg-white radius p-10">
-			<h4 class="!text-primary mb-4">{!! $g_contact_2['title'] !!}</h4>
-				{!! do_shortcode($g_contact_2['shortcode']) !!}
+			<div
+				data-gsap-element="form "
+				class="__form-container w-full lg:pt-8">
+
+				<div class="custom-figma-form w-full max-w-xl mr-auto ">
+					{!! do_shortcode($g_contact_2['shortcode']) !!}
+				</div>
+
 			</div>
+
 		</div>
+
 	</div>
 
 </section>

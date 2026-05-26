@@ -12,7 +12,7 @@ $sectionClass .= ' ' . $background;
 
 <!--- cards --->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-cards -smt {{ $sectionClass }} {{ $section_class }}">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-cards  {{ $sectionClass }} {{ $section_class }}">
 	<div class="__wrapper c-main">
 		<div class="__top">
 			<h2 data-gsap-element="header" class="text-p-lighter m-header">{{ strip_tags($g_cards['header']) }}</h2>
@@ -31,15 +31,21 @@ $sectionClass .= ' ' . $background;
 
 		<div class="grid {{ $gridClass }} gap-8 mt-10">
 			@foreach ($r_cards as $item)
-			<div data-gsap-element="card" class="__card relative bg-secondary radius p-8">
+			<div data-gsap-element="card" class="__card relative bg-primary-50 radius p-8">
 				@if (!empty($item['image']['url']))
-				<img class="mb-6" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
+				<!-- <img class="mb-6" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" /> -->
+				<div class="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-4">
+					<img
+						class="w-10 h-10 object-contain"
+						src="{{ $item['image']['url'] }}"
+						alt="{{ $item['image']['alt'] ?? '' }}" />
+				</div>
 				@endif
 				@if (!empty($item['title']))
-				<b class="text-lg !text-white">{{ $item['title'] }}</b>
+				<b class="text-base !text-black mt-2">{{ $item['title'] }}</b>
 				@endif
 				@if (!empty($item['text']))
-				<p class="text-white mt-2">{{ $item['text'] }}</p>
+				<p class="text-black mt-2">{{ $item['text'] }}</p>
 				@endif
 			</div>
 			@endforeach

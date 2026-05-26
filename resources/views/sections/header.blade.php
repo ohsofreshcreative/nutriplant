@@ -1,16 +1,15 @@
 @php
 use App\Walkers\DropdownWalker;
 use App\Walkers\MobileDropdownWalker;
-use App\Walkers\MegaMenuWalker;
 @endphp
 
-<header x-data="{ mobileOpen: false }" class="relative top-0 z-50 bg-white masthead fixed-top">
+<header x-data="{ mobileOpen: false }" class="relative top-0 z-50  bg-white masthead fixed-top">
 
 	<!-- Desktop Header -->
-	<div class="c-main items-center justify-between hidden h-full py-4 md:px-4 lg:px-12 mx-auto lg:flex">
+	<div class="items-center justify-between hidden  h-full py-4 md:px-4 lg:px-8 mx-auto xl:flex">
 		<a class="brand w-1/6 min-w-25" href="{{ home_url('/') }}">
 			@if ($logo)
-			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="relative w-auto h-14">
+			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="relative w-auto h-18">
 			@else
 			<span class="text-xl font-bold">{{ $siteName }}</span>
 			@endif
@@ -22,9 +21,8 @@ use App\Walkers\MegaMenuWalker;
 			'menu_class' => 'nav flex gap-x-2 md:gap-x-3 lg:gap-x-3 xl:gap-x-6 text-sm font-medium items-center',
 			'container' => false,
 			'echo' => false,
-			'walker' => new \App\Walkers\MegaMenuWalker(),
+			'walker' => new \App\Walkers\DropdownWalker(),
 			]) !!}
-			<!-- <a href="/panel-pacjenta"><img src="https://osrodekdobrejterapii.pl/wp-content/uploads/2026/04/user.svg" /></a> -->
 		</nav>
 		@endif
 
@@ -32,7 +30,7 @@ use App\Walkers\MegaMenuWalker;
 	</div>
 
 	<!-- Mobile Header Bar -->
-	<div class="flex items-center justify-between p-4 mobile-menu fixed-top lg:hidden gap-20">
+	<div class="flex items-center justify-between p-4 mobile-menu fixed-top xl:hidden gap-20">
 		<a class="brand" href="{{ home_url('/') }}">
 			@if ($logo)
 			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="relative w-auto h-12 -top-0.5 max-w-[200px]">
@@ -74,7 +72,7 @@ use App\Walkers\MegaMenuWalker;
 				<span class=""><a class="brand shrink-0" href="{{ home_url('/') }}"><img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="w-auto max-w-[200px] h-12"></a></span>
 				<button
 					@click="mobileOpen = false"
-					class="p-2 text-primary rounded-md">
+					class="p-2 text-primary-800 rounded-md">
 					<span class="sr-only">Zamknij menu</span>
 					<svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -83,7 +81,7 @@ use App\Walkers\MegaMenuWalker;
 			</div>
 
 			@if (has_nav_menu('primary_navigation'))
-			<nav class="flex flex-col space-y-1 mt-20">
+			<nav class="flex flex-col space-y-1 mt-20" @click="if ($event.target.closest('a')) mobileOpen = false">
 				{!! wp_nav_menu([
 				'theme_location' => 'primary_navigation',
 				'menu_class' => 'nav-mobile flex flex-col space-y-2',
@@ -93,7 +91,6 @@ use App\Walkers\MegaMenuWalker;
 				]) !!}
 			</nav>
 			@endif
-			<!-- <img src="https://osrodekdobrejterapii.pl/wp-content/uploads/2026/04/user.svg" /> -->
 			<!-- <div class="mt-8">
                 <a href="/kontakt" class="block w-full white-btn">
                 Skontaktuj się z nami
